@@ -76,7 +76,9 @@ Prompts:
 - Features it does not consider  
 - Genres or moods that are underrepresented  
 - Cases where the system overfits to one preference  
-- Ways the scoring might unintentionally favor some users  
+- Ways the scoring might unintentionally favor some users 
+
+One limitation of my recommendation system is that it places more importance on genre than on mood or energy. This can cause songs from a user's favorite genre to rank higher than songs from other genres that better match their desired musical vibe. The system also relies on a small song dataset, which limits the variety of recommendations available. These limitations may create a filter bubble by repeatedly recommending similar songs instead of introducing users to different styles. Adjusting the feature weights and expanding the dataset could improve the system's diversity.
 
 ---
 
@@ -92,6 +94,16 @@ Prompts:
 - Any simple tests or comparisons you ran  
 
 No need for numeric metrics unless you created some.
+
+I evaluated my music recommendation system using three different user profiles:
+
+1 High-Energy Pop: prefers pop music, happy moods, and energy of 0.9
+2 Chill Lofi: prefers lofi music, calm moods, and energy of 0.2
+3 Deep intense Rock: prefers rock music, intense moods, and energy of 0.95
+
+Each profile was tested against the same song dataset, and the top five recommendations were recorded
+
+I tested the sensitivity of my algorithm by reducing the genre match weight from 2.0 to 1.0 and increasing the energy similarity weight from 1.0 to 2.0. The mood weight remained unchanged at 1.0.
 
 ---
 
