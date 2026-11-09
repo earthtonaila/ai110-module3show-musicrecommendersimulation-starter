@@ -5,6 +5,8 @@
 Give your model a short, descriptive name.  
 Example: **VibeFinder 1.0**  
 
+VibeFinder 1.0 — A Content-Based Music Recommender
+
 ---
 
 ## 2. Intended Use  
@@ -16,6 +18,10 @@ Prompts:
 - What kind of recommendations does it generate  
 - What assumptions does it make about the user  
 - Is this for real users or classroom exploration  
+
+VibeFinder recommends songs based on a user's favorite genre, preferred mood, and desired energy level. It compares these preferences with the available songs and recommends the closest matches.
+
+VibeFinder is intended for educational purposes and exploring how recommendation systems work. It can suggest songs based on basic musical preferences. It is not designed to predict a person's exact musical taste or replace recommendation sysems used by major streaming platforms.
 
 ---
 
@@ -53,6 +59,8 @@ Prompts:
 - Did you add or remove data  
 - Are there parts of musical taste missing in the dataset  
 
+The system uses a CSV dataset containing 18 songs. Each song has attributes such as title, artist, genre, mood, and energy. The dataset includes several musical styles but is limited in size. Some genres and moods may have fewer songs than others.
+
 ---
 
 ## 5. Strengths  
@@ -64,6 +72,8 @@ Prompts:
 - User types for which it gives reasonable results  
 - Any patterns you think your scoring captures correctly  
 - Cases where the recommendations matched your intuition  
+
+The system awards 2 points when a song matches the user's favorite genre and 1 point when it matches their preferred mood. It also awards up to 1 point based on how close the song's energy is to the user's desired energy. Songs are ranked by their total scores, and the highest-scoring songs are recommended first.
 
 ---
 
@@ -79,6 +89,8 @@ Prompts:
 - Ways the scoring might unintentionally favor some users 
 
 One limitation of my recommendation system is that it places more importance on genre than on mood or energy. This can cause songs from a user's favorite genre to rank higher than songs from other genres that better match their desired musical vibe. The system also relies on a small song dataset, which limits the variety of recommendations available. These limitations may create a filter bubble by repeatedly recommending similar songs instead of introducing users to different styles. Adjusting the feature weights and expanding the dataset could improve the system's diversity.
+
+The system tends to prioritize songs from the user's favorite genre because genre has the highest weight. This may cause it to overlook songs from other genres that have similar moods or energy levels. The small dataset also limits the variety of recommendations.
 
 ---
 
@@ -105,6 +117,8 @@ Each profile was tested against the same song dataset, and the top five recommen
 
 I tested the sensitivity of my algorithm by reducing the genre match weight from 2.0 to 1.0 and increasing the energy similarity weight from 1.0 to 2.0. The mood weight remained unchanged at 1.0.
 
+I tested the system using three profiles: High-Energy Pop, Chill Lofi, and Deep Intense Rock. I compared the top five recommendations for each profile and examined whether the results matched the user's preferences. I also tested how changing the genre and energy weights affected the rankings.
+
 ---
 
 ## 8. Future Work  
@@ -116,7 +130,11 @@ Prompts:
 - Additional features or preferences  
 - Better ways to explain recommendations  
 - Improving diversity among the top results  
-- Handling more complex user tastes  
+- Handling more complex user tastes
+
+1 Exapnd the dataset to include more songs and genres
+2 Add features such as danceability, tempo, and acousticness
+3 Incorporate user feedback, such as likes and skips, to improve recommendations over time
 
 ---
 
@@ -129,3 +147,11 @@ Prompts:
 - What you learned about recommender systems  
 - Something unexpected or interesting you discovered  
 - How this changed the way you think about music recommendation apps  
+
+My biggest learning moment was realizing that a recommendation system can be build using a simple scoring algorithm. Before this project, I assumed music recommendations required advanced machine learning. I learned that comparing a few musical features can already produce meaningful results.
+
+AI coding tools helped me understand how to structure my Python functions, implement scoring rules, and troubleshoot errors. However, I also learned the importance of checking AI-generated code instead of assuming it would work correctly. Testing the program helped me understand how each function contributed to the final recommendations.
+
+What suprised me most was how a relatively simple scoring algorithm could still produce results that felt personalized. Small changes to the scoring weights could significantly influence which songs appeared first. This showed me that recommendation systems reflect the priorities and assumptions built into their algorithms.
+
+If I continued developing VibeFinder, I would expand the dataset and incorporate user feedback. I would also experiment with additional musical features to make the recommendations more diverse and responsive to individual preferences.
