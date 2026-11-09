@@ -32,6 +32,14 @@ Prompts:
 
 Avoid code here. Pretend you are explaining the idea to a friend who does not program.
 
+This music recommendation system uses content-based filtering to identify songs that match a user's musical preferences. Each song is evaluated based on its genre, mood, and energy level.
+
+The algorithm awards 2.0 points for a genre match, 1.0 point for a mood match, and up to 1.0 point for energy similarity. The energy score is calculated using the absolute difference between the song's energy and the user's preferred energy level.
+
+After scoring all songs, the system sorts them from highest to lowest score and returns the top recommendations. Each recommendation includes an explanation of the factors that contributed to its score.
+
+This approach is simple and interpretable, but it may favor genre matches over songs with similar moods or energy levels. It also does not learn from a user's listening history or account for preferences that change over time.
+
 ---
 
 ## 4. Data  

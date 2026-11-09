@@ -31,6 +31,8 @@ Music recommendation systems predict which songs users might enjoy by analyzing 
 
 Each song recieves a score based on how closely its attributes match the user's preferences. Genre contributes up to 40 points, mood contributes up to 30 points, energy similarity contributes up to 20 points, and tempo similarity contributes up to 10 points. The songs are then ranked from highest to lowest score, and the best matches are recommended first.
 
+Because genre contributes more points than mood or energy, the system may over-prioritize genre and overlook songs from other genres that match the user's desired vibe. The recommender also depends on a limited dataset and cannot account for individual listening history, changing preferences, or musical characteristics not included in the CSV. Increasing the diversity of songs and adjusting feature weights could improve recommendations.
+
 You can include a simple diagram or bullet list if helpful.
 
 Song Features
@@ -44,6 +46,23 @@ preferred_genre : the user's favorite musical genre
 preferred_mood : the user's desired musical mood
 preferred_energy : the user's preferred energy level
 preferred_tempo : the user's preferred tempo in BPM
+
+user_profile = {
+  "favorite_genre": "pop",
+  "favorite_mood": "calm",
+  "target_energy": 0.3,
+}
+
+The system calculates a score for each song using the following rules:
+genre match: +2.0 points if the song's genre matches the user's favorite genre
+mood match: +1.0 point if the song's mood matches the user's favorite mood
+energy similarity: 1 - abs(song_energy - target_energy)
+The maximum possible score is 4.0 points. After calculating the scores for all songs, the system sorts them from highest to lowest and returns the top 3 recommendations.
+
+1 Input: read the user's preferred genre, mood, and energy
+2 Process: read each song from songs.csv and calculate its similarity score
+3 Ranking: sort songs by their total scores
+4 Output: display the top 3 highest-scoring songs
 
 ---
 
