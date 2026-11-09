@@ -27,7 +27,23 @@ Some prompts to answer:
 - How does your `Recommender` compute a score for each song
 - How do you choose which songs to recommend
 
+Music recommendation systems predict which songs users might enjoy by analyzing their listening behavior and musical preferences. Collaborative filtering identifies patterns among users with similar listening habits, while content-based filtering recommends songs based on their musical attributes. My simulation will use content-based filtering to compare each song's genre, mood, energy, and tempo with a user's preferences. Each song will receive a weighted similarity score, and songs with the highest scores will be recommended first. I will prioritize genre and mood while using energy and tempo to identify songs with a similar musical vibe.
+
+Each song recieves a score based on how closely its attributes match the user's preferences. Genre contributes up to 40 points, mood contributes up to 30 points, energy similarity contributes up to 20 points, and tempo similarity contributes up to 10 points. The songs are then ranked from highest to lowest score, and the best matches are recommended first.
+
 You can include a simple diagram or bullet list if helpful.
+
+Song Features
+genre : the song's musical category
+mood : the emotional feeling of the song
+energy : the song's intensity or activity level
+tempo_bpm : the song's speed in beats per minute
+
+UserProfile Features
+preferred_genre : the user's favorite musical genre
+preferred_mood : the user's desired musical mood
+preferred_energy : the user's preferred energy level
+preferred_tempo : the user's preferred tempo in BPM
 
 ---
 
